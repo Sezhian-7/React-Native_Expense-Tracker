@@ -8,8 +8,8 @@ import "./nativewind-output"
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Landing  from './Pages/Landing';
-import { Profile } from './Pages/Profile';
+import Landing from './Pages/Landing';
+import Profile from './Pages/Profile';
 
 const Stack = createNativeStackNavigator();
 
