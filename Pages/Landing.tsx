@@ -31,7 +31,7 @@ const Landing: React.FC<LandingProps> = ({ navigation }: any) => {
     return (
         <BackgroundLayout>
             <>
-                <SafeAreaView style={{ flex: 1 }}>
+                <SafeAreaView>
 
                     <ScrollView >
                         <View style={styles.wrapper}>

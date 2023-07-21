@@ -5,16 +5,16 @@ import { Image, StyleSheet, View } from 'react-native';
 interface TabChangeProps {
     landing?: any;
     statistics?: any;
-    profile?: any;
-    list?: any;
+    AddExpenses?: any;
+    transaction?: any;
     setting?: any
 }
 
 const TabChange: React.FC<TabChangeProps> = ({
     landing,
     statistics,
-    profile,
-    list,
+    AddExpenses,
+    transaction,
     setting
 }) => {
     const Tab = createBottomTabNavigator();
@@ -46,7 +46,7 @@ const TabChange: React.FC<TabChangeProps> = ({
             />
             <Tab.Screen
                 name="StatisticsStack"
-                component={profile}
+                component={statistics}
                 options={{
                     tabBarShowLabel: false,
                     tabBarIcon: ({ color, size, focused }) => (
@@ -59,7 +59,7 @@ const TabChange: React.FC<TabChangeProps> = ({
             />
             <Tab.Screen
                 name="ProfileStack"
-                component={profile}
+                component={AddExpenses}
                 options={{
                     tabBarShowLabel: false,
                     tabBarIcon: ({ color, size, focused }) => (
@@ -75,7 +75,7 @@ const TabChange: React.FC<TabChangeProps> = ({
             />
             <Tab.Screen
                 name="ListStack"
-                component={profile}
+                component={transaction}
                 options={{
                     tabBarShowLabel: false,
                     tabBarIcon: ({ color, size, focused }) => (
@@ -88,7 +88,7 @@ const TabChange: React.FC<TabChangeProps> = ({
             />
             <Tab.Screen
                 name="SettingStack"
-                component={profile}
+                component={setting}
                 options={{
                     tabBarShowLabel: false,
                     tabBarIcon: ({ color, size, focused }) => (
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 2,
     },
-    active: {      
+    active: {
     }
 });
 

@@ -10,11 +10,11 @@ import ModelPopup from '../Components/ModelPopup';
 import Input from '../Components/Input';
 import SelectDropdownField from '../Components/SelectDropdownField';
 
-interface ProfileProps {
+interface AddExpensesProps {
 
 }
 
-const Profile: React.FC<ProfileProps> = ({ navigation }: any) => {
+const AddExpenses: React.FC<AddExpensesProps> = ({ navigation }: any) => {
     const [selected, setSelected] = useState(new Date());
     const [formType, setFormType] = useState("expenses");
     const [modalVisible, setModalVisible] = useState(false);
@@ -303,4 +303,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Profile
+export default AddExpenses
