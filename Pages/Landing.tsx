@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { View, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
 import BackgroundLayout from '../Layout/BackgroundLayout'
 import FooterBar from '../Components/FooterBar';
-import TextInput from '../Components/TextInput';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import NaviTabs from '../Components/NaviTabs';
 import NoDataFound from '../Components/NoDataFound';
@@ -10,6 +9,7 @@ import AdditionalInfo from '../Components/AdditionalInfo';
 import DetailView from '../Components/DetailView';
 import DateCalendar from '../Components/DateCalendar';
 import moment from 'moment';
+import TextInputField from '../Components/TextInput';
 
 
 
@@ -38,8 +38,8 @@ const Landing: React.FC<LandingProps> = ({ navigation }: any) => {
                             <View style={styles.headerBlk}>
                                 <View style={styles.headerCenter}>
                                     <View>
-                                        <TextInput addStyle={styles.textSmall} content='Welcome back' />
-                                        <TextInput addStyle={styles.textBold} content='Alan Donald' />
+                                        <TextInputField addStyle={styles.textSmall} content='Welcome back' />
+                                        <TextInputField addStyle={styles.textBold} content='Alan Donald' />
                                     </View>
                                     <View style={styles.headerIcons}>
                                         <Icon name="notifications" size={32} color="#fff" />
@@ -47,7 +47,7 @@ const Landing: React.FC<LandingProps> = ({ navigation }: any) => {
                                     </View>
                                 </View>
                             </View>
-                            <TextInput addStyle={styles.textLg} content='Manage your expenses' />
+                            <TextInputField addStyle={styles.textLg} content='Manage your expenses' />
                             <DateCalendar
                                 prevNext={true}
                                 month={monthAndDate}

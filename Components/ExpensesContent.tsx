@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import TextInput from './TextInput';
+import TextInputField from './TextInput';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
@@ -18,7 +18,7 @@ const ExpensesContent: React.FC<ExpensesContentProps> = ({
             <TouchableOpacity style={styles.backIcon} onPress={onBackArrowPress}>
                 <Icon name='keyboard-backspace' size={28} color="#fff" />
             </TouchableOpacity>
-            <TextInput addStyle={styles.headerTitle} content={screenTitle} />
+            <TextInputField addStyle={styles.headerTitle} content={screenTitle} />
         </View>
     );
 }

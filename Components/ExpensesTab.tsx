@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import TextInput from './TextInput';
+import TextInputField from './TextInput';
 
 interface ExpensesTabProps {
     isIncome?: boolean;
@@ -16,10 +16,10 @@ const ExpensesTab: React.FC<ExpensesTabProps> = ({
     return (
         <View style={styles.toggleBlk}>
             <TouchableOpacity style={{ width: '50%' }} onPress={onPressExpense}>
-                <TextInput addStyle={[styles.toggle, isIncome ? null : styles.active]} content='Expenses' />
+                <TextInputField addStyle={[styles.toggle, isIncome ? null : styles.active]} content='Expenses' />
             </TouchableOpacity>
             <TouchableOpacity style={{ width: '50%' }} onPress={onPressIncome}>
-                <TextInput addStyle={[styles.toggle, isIncome ? styles.active : null]} content='Income' />
+                <TextInputField addStyle={[styles.toggle, isIncome ? styles.active : null]} content='Income' />
             </TouchableOpacity>
         </View>
     );

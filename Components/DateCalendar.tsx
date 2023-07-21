@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import { Calendar } from 'react-native-calendars';
-import TextInput from './TextInput';
+import TextInputField from './TextInput';
 
 
 interface DateCalendarProps {
@@ -37,7 +37,7 @@ const DateCalendar: React.FC<DateCalendarProps> = ({
             <View style={styles.dateCenter}>
                 <View style={styles.monthBlk}>
                     {prevNext ? <MIcon name="chevron-left" size={32} color="#fff" /> : null}
-                    <TextInput content={month} addStyle={[styles.month, prevNext ? null : styles.textBlack]} />
+                    <TextInputField content={month} addStyle={[styles.month, prevNext ? null : styles.textBlack]} />
                     {prevNext ? <MIcon name="chevron-right" size={32} color="#fff" /> : null}
                 </View>
                 <View>

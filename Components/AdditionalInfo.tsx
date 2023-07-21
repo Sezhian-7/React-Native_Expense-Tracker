@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import TextInput from './TextInput';
+import TextInputField from './TextInput';
 
 
 interface AdditionalInfoProps {
@@ -11,15 +11,15 @@ interface AdditionalInfoProps {
 const AdditionalInfo: React.FC<AdditionalInfoProps> = ({ }) => {
     return (
         <View style={styles.additionalBlk}>
-            <TextInput addStyle={{ fontSize: 20, fontWeight: '500', color: '#000' }} content='Additional informations' />
+            <TextInputField addStyle={{ fontSize: 20, fontWeight: '500', color: '#000' }} content='Additional informations' />
             <View style={styles.cardBlk}>
                 <View style={styles.card}>
                     <Icon style={styles.icon} name="piggy-bank" size={32} color="#08979D" />
-                    <TextInput addStyle={styles.greenText} content='Savings' />
+                    <TextInputField addStyle={styles.greenText} content='Savings' />
                 </View>
                 <View style={styles.card}>
                     <Icon style={styles.icon} name="calendar-alt" size={32} color="#08979D" />
-                    <TextInput addStyle={styles.greenText} content='Remainder' />
+                    <TextInputField addStyle={styles.greenText} content='Remainder' />
                 </View>
             </View>
         </View>

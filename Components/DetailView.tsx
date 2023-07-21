@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import TextInput from './TextInput';
+import TextInputField from './TextInput';
 import { detailValues } from '../JsonData/data';
 import Card from './Card';
 
@@ -15,15 +15,15 @@ const DetailView: React.FC<DetailViewProps> = ({ data = detailValues }) => {
         <View style={styles.detailedView}>
             {detailValues.map((item, index) => {
                 return <View key={index} style={[styles.detailCenter, (index === data.length - 1 ? { marginBottom: 0 } : null)]}>
-                    <TextInput addStyle={styles.title} content={item.date} />
+                    <TextInputField addStyle={styles.title} content={item.date} />
                     <View style={styles.header}>
                         <View style={styles.headerTitle}>
-                            <TextInput addStyle={{ fontSize: 16, marginRight: 5 }} content="Income" />
-                            <TextInput addStyle={{ color: '#005257' }} content={item.income} />
+                            <TextInputField addStyle={{ fontSize: 16, marginRight: 5 }} content="Income" />
+                            <TextInputField addStyle={{ color: '#005257' }} content={item.income} />
                         </View>
                         <View style={styles.headerTitle}>
-                            <TextInput addStyle={{ fontSize: 16, marginRight: 5 }} content='Expences' />
-                            <TextInput addStyle={{ color: '#B91D1D' }} content={item.expense} />
+                            <TextInputField addStyle={{ fontSize: 16, marginRight: 5 }} content='Expences' />
+                            <TextInputField addStyle={{ color: '#B91D1D' }} content={item.expense} />
                         </View>
                     </View>
                     {item.data.map((card, index) => {

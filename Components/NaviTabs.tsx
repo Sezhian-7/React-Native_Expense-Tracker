@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import TextInput from './TextInput';
+import TextInputField from './TextInput';
 
 
 interface NaviTabsProps {
@@ -11,19 +11,19 @@ const NaviTabs: React.FC<NaviTabsProps> = ({ }) => {
     return (
         <View style={styles.headerTabsBlk}>
             <View>
-                <TextInput addStyle={styles.title} content='Income' />
-                <TextInput addStyle={[styles.counts, { color: '#005257' }]} content={`₹ ${'1,50,000'}`} />
+                <TextInputField addStyle={styles.title} content='Income' />
+                <TextInputField addStyle={[styles.counts, { color: '#005257' }]} content={`₹ ${'1,50,000'}`} />
             </View>
             <View style={styles.vr} />
             <View>
-                <TextInput addStyle={styles.title} content='Expense' />
-                <TextInput addStyle={[styles.counts, { color: '#B91D1D' }]} content={`₹ ${'20,000'}`} />
+                <TextInputField addStyle={styles.title} content='Expense' />
+                <TextInputField addStyle={[styles.counts, { color: '#B91D1D' }]} content={`₹ ${'20,000'}`} />
             </View>
             <View style={styles.vr} />
 
             <View>
-                <TextInput addStyle={styles.title} content='Total' />
-                <TextInput addStyle={[styles.counts, { color: '#4D4D4D' }]} content={`₹ ${'1,30,000'}`} />
+                <TextInputField addStyle={styles.title} content='Total' />
+                <TextInputField addStyle={[styles.counts, { color: '#4D4D4D' }]} content={`₹ ${'1,30,000'}`} />
             </View>
         </View>
     );

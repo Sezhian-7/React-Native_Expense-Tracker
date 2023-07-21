@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native';
-import TextInput from './TextInput';
+import TextInputField from './TextInput';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { amountType } from '../JsonData/Constant';
 
@@ -25,9 +25,9 @@ const Card: React.FC<CardProps> = ({
         <View style={styles.cardBlk}>
             <View style={{ flexDirection: 'row', alignItems: 'center', columnGap: 20 }}>
                 <Icon style={[styles.iconGreen, { backgroundColor: iconColor }]} name={iconName} size={28} color="#fff" />
-                <TextInput addStyle={{ fontSize: 15 }} content={category} />
+                <TextInputField addStyle={{ fontSize: 15 }} content={category} />
             </View>
-            <TextInput addStyle={type === amountType.income ? styles.income : styles.expense} content={amount} />
+            <TextInputField addStyle={type === amountType.income ? styles.income : styles.expense} content={amount} />
         </View>
     );
 }

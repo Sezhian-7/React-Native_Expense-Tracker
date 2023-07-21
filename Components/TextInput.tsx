@@ -2,12 +2,12 @@ import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 
 
-interface TextInputProps {
+interface TextInputTextInputFieldProps {
     content: string;
     addStyle?: {};
 }
 
-const TextInput: React.FC<TextInputProps> = ({ content, addStyle  }) => {
+const TextInputField: React.FC<TextInputTextInputFieldProps> = ({ content, addStyle  }) => {
     return (
         <Text style={addStyle}>
             {content}
@@ -15,4 +15,4 @@ const TextInput: React.FC<TextInputProps> = ({ content, addStyle  }) => {
     );
 }
 
-export default TextInput
+export default TextInputField
