@@ -72,9 +72,9 @@ const Landing: React.FC<LandingProps> = ({ navigation }: any) => {
 
 
 
-                <FooterBar
+                {/* <FooterBar
                     onPressAdd={() => navigation.navigate('Profile')}
-                />
+                /> */}
             </>
 
         </BackgroundLayout>
