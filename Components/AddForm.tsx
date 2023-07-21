@@ -6,6 +6,7 @@ import TextInputField from './TextInputField';
 import DateCalendar from './DateCalendar';
 import SelectDropdownField from './SelectDropdownField';
 import { Formik } from 'formik'
+import ModifyButton from './ModifyButton';
 
 interface AddFormProps {
     initialValues?: any;
@@ -67,7 +68,7 @@ export const AddForm: React.FC<AddFormProps> = ({
                     <>
                         {console.log('err', errors, touched)}
 
-              
+
                         <DateCalendar
                             prevNext={false}
                             month={month}
@@ -78,7 +79,7 @@ export const AddForm: React.FC<AddFormProps> = ({
                             onDayPress={onDayPress}
                         />
 
-                
+
                         <Input
                             id='amount'
                             label='Enter the amount'
@@ -91,8 +92,8 @@ export const AddForm: React.FC<AddFormProps> = ({
                             touched={touched.amount}
                         />
 
-               
-                        <SelectDropdownField  
+
+                        <SelectDropdownField
                             label='Choose category'
                             selectedvalue={selectedCategory}
                             options={categoryOption}
@@ -106,7 +107,7 @@ export const AddForm: React.FC<AddFormProps> = ({
 
                         />
 
-                  
+
                         <TouchableOpacity onPress={onAddNewCategory}>
                             <View style={styles.addCat}>
                                 <TextInputField addStyle={styles.categoryBtn} content='Add new category' />
@@ -114,7 +115,7 @@ export const AddForm: React.FC<AddFormProps> = ({
                             </View>
                         </TouchableOpacity>
 
-                  
+
                         <Input
                             label='Note'
                             placeholderText='Add your notes here...'
@@ -123,7 +124,10 @@ export const AddForm: React.FC<AddFormProps> = ({
                             isMultiline={true}
                             noOfLines={4}
                         />
-                      
+                        <ModifyButton
+                            text={`Add ${isIncome ? 'income' : 'Expenses'}`}
+                            onClick={onSubmitForm} />
+
                     </>
                 )}
             </Formik>

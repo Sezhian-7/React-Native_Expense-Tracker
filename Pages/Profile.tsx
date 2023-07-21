@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import BackgroundLayout from '../Layout/BackgroundLayout';
 import ExpensesContent from '../Components/ExpensesContent';
 import ExpensesTab from '../Components/ExpensesTab';
 import AddForm from '../Components/AddForm';
 import * as Yup from 'yup';
 import moment from 'moment'
+import ModelPopup from '../Components/ModelPopup';
+import Input from '../Components/Input';
+import SelectDropdownField from '../Components/SelectDropdownField';
 
 interface ProfileProps {
 
@@ -22,6 +25,18 @@ const Profile: React.FC<ProfileProps> = ({ navigation }: any) => {
     const onBackArrowPress = () => {
         navigation.goBack()
     }
+    const icons = [
+        { title: 'Food', image: require('../Assets/png/food.png') },
+        { title: 'Travel', image: require('../Assets/png/travel.png') },
+        { title: 'Medicine', image: require('../Assets/png/pill.png') },
+        { title: 'Groceries', image: require('../Assets/png/shopping-cart.png') },
+    ];
+    const colorOption = [
+        { title: 'Red', color: 'red' },
+        { title: 'Blue', color: 'blue' },
+        { title: 'Green', color: 'green' },
+        { title: 'Yellow', color: 'yellow' }
+    ]
     const [isIncome, setIncome] = useState(false);
     const onPressExpense = () => {
         setIncome(false)
@@ -54,6 +69,37 @@ const Profile: React.FC<ProfileProps> = ({ navigation }: any) => {
     const onDayPress = (day: any) => {
         setSelected(day.dateString);
         setShowCalendar(false);
+    }
+    const [newCategory, setNewCategory] = useState({
+        title: '',
+        iconName: '',
+        color: ''
+    })
+    const onCloseModal = () => {
+        setNewCategory({
+            title: '',
+            iconName: '',
+            color: ''
+        })
+        setModalVisible(!modalVisible)
+    }
+    const onChangeCatTitle = (value: string) => {
+        setNewCategory((prev: any) => ({
+            ...prev,
+            title: value
+        }))
+    }
+    const onIconSelect = (value: any) => {
+        setNewCategory((prev: any) => ({
+            ...prev,
+            iconName: value.title
+        }))
+    }
+    const onCatColorSelect = (value: any) => {
+        setNewCategory((prev: any) => ({
+            ...prev,
+            color: value.color
+        }))
     }
 
     return (
@@ -93,7 +139,78 @@ const Profile: React.FC<ProfileProps> = ({ navigation }: any) => {
                         </View>
 
                     </View>
+                    <ModelPopup showModal={modalVisible} closeModal={onCloseModal}>
+                        <View>
+                            <Input
+                                label='Category title'
+                                placeholderText='Enter the title'
+                                value={newCategory.title}
+                                onChange={(value: string) => {
+                                    onChangeCatTitle(value)
+                                }}
+                            />
+                            <SelectDropdownField
+                                label='Choose icon'
+                                customButton={(selectedItem: any) => {
+                                    return (
+                                        <View style={styles.selectInput}>
+                                            {selectedItem ? (
+                                                <Image source={selectedItem.image} style={styles.selectedIcon} />
+                                            ) : (
+                                                // <Ionicons name="md-earth-sharp" color={'#444'} size={32} />
+                                                null
+                                            )}
+                                            <Text style={[styles.selectText, {
+                                                color: selectedItem ? '#000' : '#0000005E',
+                                                paddingHorizontal: selectedItem ? 10 : 0
+                                            }]}>{selectedItem ? selectedItem.title : 'Choose icon'}</Text>
+                                        </View>
+                                    );
+                                }}
+                                customRow={(item: any) => {
+                                    return (
+                                        <View style={styles.dropdown3RowChildStyle}>
+                                            <Image source={item.image} style={styles.dropdownRowImage} />
+                                            <Text style={styles.dropdown3RowTxt}>{item.title}</Text>
+                                        </View>
+                                    );
+                                }}
+                                selectedvalue={newCategory.iconName}
+                                options={icons}
+                                onSelect={onIconSelect}
+                            />
 
+                            <SelectDropdownField
+                                label='Choose color'
+                                selectedvalue={newCategory.color}
+                                options={colorOption}
+                                onSelect={onCatColorSelect}
+                                customButton={(selectedItem: any) => {
+                                    return (
+                                        <View style={styles.selectColorInput}>
+                                            {selectedItem ? (
+                                                <View style={[styles.color, { backgroundColor: selectedItem.color }]} />
+                                            ) : (
+                                                null
+                                            )}
+                                            <Text style={[styles.selectText, {
+                                                color: selectedItem ? '#000' : '#0000005E',
+                                                paddingHorizontal: selectedItem ? 10 : 0
+                                            }]}>{selectedItem ? selectedItem.title : 'Choose color'}</Text>
+                                        </View>
+                                    );
+                                }}
+                                customRow={(item: any) => {
+                                    return (
+                                        <View style={styles.colorRow}>
+                                            <View style={[styles.color, { backgroundColor: item.color }]} />
+                                            <Text style={styles.colorText}>{item.title}</Text>
+                                        </View>
+                                    );
+                                }}
+                            />
+                        </View>
+                    </ModelPopup>
                 </ScrollView>
             </>
         </BackgroundLayout>
