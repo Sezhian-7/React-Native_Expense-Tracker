@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import TextInputField from './TextInput';
+import TextInputField from './TextInputField';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 

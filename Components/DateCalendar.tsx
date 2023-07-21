@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import { Calendar } from 'react-native-calendars';
-import TextInputField from './TextInput';
+import TextInputField from './TextInputField';
 
 
 interface DateCalendarProps {

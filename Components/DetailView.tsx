@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import TextInputField from './TextInput';
+import TextInputField from './TextInputField';
 import { detailValues } from '../JsonData/data';
 import Card from './Card';
 

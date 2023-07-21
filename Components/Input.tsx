@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, TextInput, Keyboard } from 'react-native';
-import TextInputField from './TextInput';
+import TextInputField from './TextInputField';
 
 
 interface InputProps {

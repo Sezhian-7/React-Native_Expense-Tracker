@@ -3,13 +3,22 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import BackgroundLayout from '../Layout/BackgroundLayout';
 import ExpensesContent from '../Components/ExpensesContent';
 import ExpensesTab from '../Components/ExpensesTab';
+import AddForm from '../Components/AddForm';
+import * as Yup from 'yup';
+import moment from 'moment'
 
 interface ProfileProps {
 
 }
 
 const Profile: React.FC<ProfileProps> = ({ navigation }: any) => {
+    const [selected, setSelected] = useState(new Date());
     const [formType, setFormType] = useState("expenses");
+    const [modalVisible, setModalVisible] = useState(false);
+    const categoryOption = ["Food", "Travel", "Groceries", "Medicine"]
+    const [showCalendar, setShowCalendar] = useState(false);
+    const monthAndDate = moment(selected || new Date()).format('Do MMMM YYYY')
+    const maxDate = moment(new Date()).format('YYYY-MM-DD').toString();
     const onBackArrowPress = () => {
         navigation.goBack()
     }
@@ -20,7 +29,33 @@ const Profile: React.FC<ProfileProps> = ({ navigation }: any) => {
     const onPressIncome = () => {
         setIncome(true)
     }
-    
+    const [initialValues, setInitialValues] = useState({
+        amount: '',
+        category: '',
+        note: '',
+    })
+    const validationSchema = Yup.object().shape({
+        amount: Yup.string().required("Amount is required"),
+        category: Yup.string().required("Category is required"),
+        note: Yup.string().optional(),
+    })
+    const [amount, onChangeAmount] = useState('');
+    const [category, setCategory] = useState('');
+    const [note, onChangeNote] = useState('');
+    const onSubmitForm = () => {
+        console.log("values", amount, category, note, selected);
+    }
+    const onAddNewCategory = () => {
+        setModalVisible(!modalVisible)
+    }
+    const onCategorySelect = (value: any) => {
+        setCategory(value);
+    }
+    const onDayPress = (day: any) => {
+        setSelected(day.dateString);
+        setShowCalendar(false);
+    }
+
     return (
         <BackgroundLayout>
             <>
@@ -36,7 +71,25 @@ const Profile: React.FC<ProfileProps> = ({ navigation }: any) => {
                                 onPressIncome={onPressIncome}
                                 isIncome={isIncome}
                             />
-
+                            <AddForm
+                                initialValues={initialValues}
+                                validationSchema={validationSchema}
+                                isIncome={isIncome}
+                                onSubmitForm={onSubmitForm}
+                                onAddNewCategory={onAddNewCategory}
+                                amount={amount}
+                                note={note}
+                                onChangeNote={onChangeNote}
+                                onChangeAmount={onChangeAmount}
+                                categoryOption={categoryOption}
+                                selectedCategory={category}
+                                onCategorySelect={onCategorySelect}
+                                month={monthAndDate}
+                                onDateIconClick={() => setShowCalendar(!showCalendar)}
+                                onDayPress={onDayPress}
+                                maxDate={maxDate}
+                                show={showCalendar}
+                            />
                         </View>
 
                     </View>
@@ -75,7 +128,6 @@ const styles = StyleSheet.create({
         marginBottom: 30,
     },
     dropdown3BtnStyle: {
-        // width: '80%',
         height: 50,
         backgroundColor: '#FFF',
         paddingHorizontal: 0,

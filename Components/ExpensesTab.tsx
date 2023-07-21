@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import TextInputField from './TextInput';
+import TextInputField from './TextInputField';
 
 interface ExpensesTabProps {
     isIncome?: boolean;

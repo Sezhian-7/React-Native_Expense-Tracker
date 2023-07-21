@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import TextInputField from './TextInput';
+import TextInputField from './TextInputField';
 
 
 interface AdditionalInfoProps {

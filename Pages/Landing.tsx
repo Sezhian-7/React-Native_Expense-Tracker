@@ -9,7 +9,7 @@ import AdditionalInfo from '../Components/AdditionalInfo';
 import DetailView from '../Components/DetailView';
 import DateCalendar from '../Components/DateCalendar';
 import moment from 'moment';
-import TextInputField from '../Components/TextInput';
+import TextInputField from '../Components/TextInputField';
 
 
 

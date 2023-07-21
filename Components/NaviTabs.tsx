@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import TextInputField from './TextInput';
+import TextInputField from './TextInputField';
 
 
 interface NaviTabsProps {
