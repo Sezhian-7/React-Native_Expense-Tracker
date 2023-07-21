@@ -9,6 +9,7 @@ import moment from 'moment'
 import ModelPopup from '../Components/ModelPopup';
 import Input from '../Components/Input';
 import SelectDropdownField from '../Components/SelectDropdownField';
+import ModifyButton from '../Components/ModifyButton';
 
 interface AddExpensesProps {
 
@@ -208,6 +209,10 @@ const AddExpenses: React.FC<AddExpensesProps> = ({ navigation }: any) => {
                                         </View>
                                     );
                                 }}
+                            />
+
+                            <ModifyButton
+                                text='Add category'
                             />
                         </View>
                     </ModelPopup>
