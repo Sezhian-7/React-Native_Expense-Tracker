@@ -17,6 +17,9 @@ interface InputProps {
     errorText?: any;
     id?: any;
     touched?: any;
+    containerStyle?: {}
+    icon?: any;
+
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -24,6 +27,7 @@ export const Input: React.FC<InputProps> = ({
     onChange,
     value,
     placeholderText,
+    containerStyle,
     label = '',
     isMultiline,
     noOfLines,
@@ -32,16 +36,23 @@ export const Input: React.FC<InputProps> = ({
     error,
     errorText,
     id,
-    touched
+    touched,
+    icon
 }) => {
     const [isFocused, setFocused] = useState(false);
 
     return (
-        <View style={styles.inputContainer}>
+        <View style={[styles.inputContainer, containerStyle]}>
             <TextInputField addStyle={styles.label} content={label} />
             <TextInput
                 id={id}
-                style={[styles.input, addStyle, { borderColor: error ? '#DF3535' : isFocused ? '#08979D' : '#0000001A' }, isMultiline ? { textAlignVertical: 'top' } : null]}
+                style={[
+                    styles.input,
+                    addStyle,
+                    { borderColor: error ? '#DF3535' : isFocused ? '#08979D' : '#0000001A' },
+                    isMultiline ? { textAlignVertical: 'top' } : null,
+                    icon ? { paddingRight: 45 } : null,
+                ]}
                 onChangeText={onChange}
                 value={value}
                 placeholder={placeholderText}
@@ -55,6 +66,8 @@ export const Input: React.FC<InputProps> = ({
                 }}
                 onBlur={() => setFocused(false)}
             />
+            {icon ? <View style={styles.icon}>{icon}</View> : null}
+
             {(error && touched) && <TextInputField addStyle={styles.error} content={error} />}
         </View>
     );
@@ -64,11 +77,16 @@ const styles = StyleSheet.create({
     inputContainer: {
         marginBottom: 30
     },
+    icon: {
+        position: 'absolute',
+        top: 45,
+        right: 10
+    },
     label: {
         marginBottom: 10,
         fontSize: 18,
         fontFamily: 'Varela-Regular',
-        color:'#000'
+        color: '#000'
     },
     input: {
         backgroundColor: '#fff',
