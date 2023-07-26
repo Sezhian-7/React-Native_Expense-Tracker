@@ -20,8 +20,8 @@ export const Transaction: React.FC<TransactionProps> = ({ }) => {
                         <ExpensesContent screenTitle='Detailed report' />
                         <View style={styles.listCenter}>
                             <Input
-                                id={'search'}
-                                placeholderText='search'
+                                id={'earch'}
+                                placeholderText='Search'
                                 value={searchValue}
                                 onChange={(value: string) => {
                                     setSearchValue(value);

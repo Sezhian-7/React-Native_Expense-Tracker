@@ -43,7 +43,7 @@ export const Input: React.FC<InputProps> = ({
 
     return (
         <View style={[styles.inputContainer, containerStyle]}>
-            <TextInputField addStyle={styles.label} content={label} />
+            {label ? <TextInputField addStyle={styles.label} content={label} /> : null}
             <TextInput
                 id={id}
                 style={[
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     },
     icon: {
         position: 'absolute',
-        top: 45,
+        top: 10,
         right: 10
     },
     label: {
