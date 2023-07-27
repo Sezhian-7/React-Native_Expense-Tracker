@@ -64,3 +64,80 @@ export const detailValues = [
         ]
     }
 ] 
+
+export const transactionData = [
+    {
+        date: "22nd June 2023",    
+        data: [
+            {
+                category: 'Snacks',
+                amount: '₹ 5,000',
+                iconName: 'bank',
+                type: 'income',
+                iconColor: '#3AE2C4'
+            },
+            {
+                category: 'Breakfast',
+                amount: '₹ 1,000',
+                iconName: 'food',
+                type: 'expense',
+                iconColor: '#845FD1'
+
+
+            },
+            {
+                category: 'Tea',
+                amount: '₹ 2,000',
+                iconName: 'airplane-takeoff',
+                type: 'expense',
+                iconColor: '#EF731B'
+
+            },
+            {
+                category: 'Lunch',
+                amount: '₹ 2,000',
+                iconName: 'airplane-takeoff',
+                type: 'expense',
+                iconColor: '#EF731B'
+
+            },
+        ]
+    },
+    {
+        date: "23rd June 2023",   
+        data: [
+            {
+                category: 'Snacks',
+                amount: '₹ 5,000',
+                iconName: 'bank',
+                type: 'income',
+                iconColor: '#3AE2C4'
+            },
+            {
+                category: 'Breakfast',
+                amount: '₹ 1,000',
+                iconName: 'food',
+                type: 'expense',
+                iconColor: '#845FD1'
+
+
+            },
+            {
+                category: 'Tea',
+                amount: '₹ 2,000',
+                iconName: 'airplane-takeoff',
+                type: 'expense',
+                iconColor: '#EF731B'
+
+            },
+            {
+                category: 'Lunch',
+                amount: '₹ 2,000',
+                iconName: 'airplane-takeoff',
+                type: 'expense',
+                iconColor: '#EF731B'
+
+            },
+        ]
+    }
+] 
