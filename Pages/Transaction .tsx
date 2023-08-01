@@ -6,6 +6,7 @@ import Input from '../Components/Input';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import TextInputField from '../Components/TextInputField';
 import { transactionData } from '../JsonData/data';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface TransactionProps {
 
@@ -39,13 +40,26 @@ export const Transaction: React.FC<TransactionProps> = ({ }) => {
                                         <View>
                                             <TextInputField addStyle={styles.title} content={item.date} />
                                             <View style={styles.sectionCardBlk}>
+                                                <View style={styles.cardWrapper}>
+                                                    <View style={styles.itemCard}>
+                                                        <Icon style={[styles.iconGreen, { backgroundColor: item.iconColor }]} name={item.iconName} size={28} color="#fff" />
+                                                        <TextInputField addStyle={{ fontSize: 15 }} content={item.foodTitle} />
+                                                    </View>
+                                                    <TextInputField addStyle={styles.itemAbsoulte} content={item.income} />
+                                                </View>
+
                                                 {
                                                     item.data.map((res: any) => {
                                                         return (
-                                                            <View style={styles.cardWrapper} >
-                                                                <TextInputField addStyle={styles.card} content={res.category} />
-                                                                <TextInputField addStyle={styles.currency} content={res.amount} />                                                            
+                                                            <View>
+
+
+                                                                <View style={styles.cardWrapper} >
+                                                                    <TextInputField addStyle={styles.card} content={res.category} />
+                                                                    <TextInputField addStyle={styles.currency} content={res.amount} />
+                                                                </View>
                                                             </View>
+
                                                         )
                                                     })
                                                 }
@@ -112,11 +126,36 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         letterSpacing: 1,
         color: "#4D4D4D"
-    },  
-    currency:{
-        position:'absolute',
-        right:25,
-        top:25,
+    },
+    currency: {
+        position: 'absolute',
+        right: 25,
+        top: 25,
+    },
+    iconGreen: {
+        backgroundColor: '#3AE2C4',
+        padding: 10,
+        borderRadius: 100,
+        borderColor: '#006B6530',
+        borderWidth: 5,
+    },
+    itemCard: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        columnGap: 20,
+        borderBottomWidth: .2,
+        borderBottomColor:'#708090',
+        paddingRight: 20,
+        paddingLeft:20,
+        paddingTop:10,
+        paddingBottom:10,
+        position: 'relative',
+        width: '100%'
+    },
+    itemAbsoulte: {
+        position: 'absolute',
+        right: 20,
+        top: 40
     }
 })
 

@@ -67,76 +67,52 @@ export const detailValues = [
 
 export const transactionData = [
     {
-        date: "22nd June 2023",    
+        date: "22nd June 2023",   
+        income: '₹ 6,000',
+        iconName: 'food',
+        iconColor: '#845FD1',
+        foodTitle:"Food",
         data: [
             {
                 category: 'Snacks',
-                amount: '₹ 5,000',
-                iconName: 'bank',
-                type: 'income',
-                iconColor: '#3AE2C4'
+                amount: '₹ 5,000',             
             },
             {
                 category: 'Breakfast',
                 amount: '₹ 1,000',
-                iconName: 'food',
-                type: 'expense',
-                iconColor: '#845FD1'
-
-
             },
             {
                 category: 'Tea',
-                amount: '₹ 2,000',
-                iconName: 'airplane-takeoff',
-                type: 'expense',
-                iconColor: '#EF731B'
-
+                amount: '₹ 2,000',  
             },
             {
                 category: 'Lunch',
-                amount: '₹ 2,000',
-                iconName: 'airplane-takeoff',
-                type: 'expense',
-                iconColor: '#EF731B'
-
+                amount: '₹ 2,000',             
             },
         ]
     },
     {
-        date: "23rd June 2023",   
+        date: "23rd June 2023",
+        income: '₹ 6,000',
+        iconName: 'food',
+        iconColor: '#845FD1',
+        foodTitle:"Food",   
         data: [
             {
                 category: 'Snacks',
-                amount: '₹ 5,000',
-                iconName: 'bank',
-                type: 'income',
-                iconColor: '#3AE2C4'
+                amount: '₹ 5,000',             
             },
             {
                 category: 'Breakfast',
                 amount: '₹ 1,000',
-                iconName: 'food',
-                type: 'expense',
-                iconColor: '#845FD1'
-
-
             },
             {
                 category: 'Tea',
-                amount: '₹ 2,000',
-                iconName: 'airplane-takeoff',
-                type: 'expense',
-                iconColor: '#EF731B'
-
+                amount: '₹ 2,000',  
             },
             {
                 category: 'Lunch',
-                amount: '₹ 2,000',
-                iconName: 'airplane-takeoff',
-                type: 'expense',
-                iconColor: '#EF731B'
-
+                amount: '₹ 2,000',             
             },
         ]
     }
